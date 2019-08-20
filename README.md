@@ -2,7 +2,7 @@
 
 Join us for an introductory R workshop hosted by the UBC R Study Group! Coffee and snacks will be provided
 
-* When: Friday September 27th, 1-4pm (**TENTATIVE**)
+* When: Friday September 27th, 1-5pm
 * Where: Koerner Library, room 216
 * Registration: [click here](https://www.eventbrite.ca/e/r-beginner-workshop-tickets-68936650377) to register; fee is $20
 * [UBC R Study Group home page](https://ubc-r-study-group.github.io/studyGroup/)

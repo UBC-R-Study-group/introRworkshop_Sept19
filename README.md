@@ -1,4 +1,4 @@
-# Intro R Workshop: September 2019
+# R Beginner Workshop: September 2019
 
 Join us for an introductory R workshop hosted by the UBC R Study Group! Coffee and snacks will be provided
 

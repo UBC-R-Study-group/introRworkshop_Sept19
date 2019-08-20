@@ -22,9 +22,10 @@ Join us for an introductory R workshop hosted by the UBC R Study Group! Coffee a
 | 1:00pm | Intro to RStudio: WD, Projects, Basic Operations | person | username |
 | 1:30pm | Importing Data, Basic Data Manipulation/Viewing | person | username |
 | 2:00pm | Data Wrangling with dplyr and tidyr Part 1| person | username |
-| 2:30pm | Break: Snacks & Coffee Included! | person | username |
-| 3:00pm | Data Wrangling with dplyr and tidyr Part 2 | person | username |
+| 3:00pm | Break: Snacks & Coffee Included! | person | username |
 | 3:30pm | Visualization with ggplot2 | person | username |
+| 4:00pm | lesson | person | username |
+| 4:30pm | lesson | person | username |
 
 
 # Helpers

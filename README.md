@@ -12,6 +12,12 @@ Join us for an introductory R workshop hosted by the UBC R Study Group! Coffee a
 Please follow the links below to install R and RStudio **prior** to the workshop:
 * Install R from [CRAN](https://cran.r-project.org/)
 * Install [RStudio](https://www.rstudio.com/)
+
+Once you have installed the above, open RStudio, and install the following packages with the included commands:
+* tidyverse by typing `install.packages("tidyverse")`
+* gapminder dataset by typing `install.packages("gapminder")`
+
+Finally, please be sure to review our Code of Conduct:
 * [Code of Conduct](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html)
 
 

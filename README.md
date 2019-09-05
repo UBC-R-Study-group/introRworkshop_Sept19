@@ -9,7 +9,7 @@ Join us for an introductory R workshop hosted by the UBC R Study Group! Coffee a
 
 
 # Important Links
-
+Please follow the links below to install R and RStudio **prior** to the workshop:
 * Install R from [CRAN](https://cran.r-project.org/)
 * Install [RStudio](https://www.rstudio.com/)
 * [Code of Conduct](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html)

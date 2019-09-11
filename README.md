@@ -1,6 +1,6 @@
 # R Beginner Workshop: September 2019
 
-Tiny URL for this repo: https://tinyurl.com/y2qfb2pk
+[Short link for this repo!](https://tinyurl.com/y2qfb2pk)
 
 Join us for an introductory R workshop hosted by the UBC R Study Group! Coffee and snacks will be provided.
 
@@ -22,6 +22,8 @@ Once you have installed the above, open RStudio, and install the following packa
 Finally, please be sure to review our Code of Conduct:
 * [Code of Conduct](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html)
 
+Join the UBC R Study Group Slack channel:
+* [Slack](https://tinyurl.com/yycbcpsc)
 
 # Schedule
 

@@ -1,6 +1,6 @@
 # R Beginner Workshop: September 2019
 
-[Short link for this repo!](https://tinyurl.com/y2qfb2pk)
+Short link for this repo: https://tinyurl.com/y2qfb2pk
 
 Join us for an introductory R workshop hosted by the UBC R Study Group! Coffee and snacks will be provided.
 

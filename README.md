@@ -25,11 +25,10 @@ Finally, please be sure to review our Code of Conduct:
 
 | Time | Lesson | Instructor | Github Username |
 |-----------|------------|---------|--------|
-| 1:00pm | Intro to RStudio: WD, Projects, Basic Operations | Jasmine Lai | @laijamine |
+| 1:00pm | Intro to RStudio: WD, Projects, Basic Operations | Jasmine Lai | @laijasmine |
 | 2:00pm | Importing Data, Basic Data Manipulation/Viewing | Arnav Sood | @arnavs |
 | 2:30pm | Break: Snacks & Coffee Included! | | |
-| 3:00pm | Data Wrangling with dplyr and tidyr Part 1 | Travis Blimkie | @travis-m-blimkie |
-| 3:30pm | Data Wrangling with dplyr and tidyr Part 2 | Travis Blimkie | @travis-m-blimkie |
+| 3:00pm | Data Wrangling with dplyr and tidyr | Travis Blimkie | @travis-m-blimkie |
 | 4:00pm | Visualization with ggplot2 | Matt Whalen| @mawhal |
 | 4:30pm | Wrap-Up and Survey | | |
 

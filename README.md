@@ -38,6 +38,7 @@ Finally, please be sure to review our Code of Conduct:
 * Travis Blimkie
 * Jasmine Lai
 * Arnav Sood
+* Matt Whalen
 
 
 # Helpers

@@ -1,6 +1,8 @@
 # R Beginner Workshop: September 2019
 
-Join us for an introductory R workshop hosted by the UBC R Study Group! Coffee and snacks will be provided
+Tiny URL for this repo: https://tinyurl.com/y2qfb2pk
+
+Join us for an introductory R workshop hosted by the UBC R Study Group! Coffee and snacks will be provided.
 
 * When: Friday September 27th, 1-5pm
 * Where: Koerner Library, Room 548 and 552 - Presentation Room

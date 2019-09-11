@@ -23,7 +23,7 @@ Finally, please be sure to review our Code of Conduct:
 * [Code of Conduct](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html)
 
 Join the UBC R Study Group Slack channel:
-* [Slack](https://tinyurl.com/yycbcpsc)
+* https://tinyurl.com/yycbcpsc
 
 # Schedule
 

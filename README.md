@@ -1,5 +1,8 @@
 # R Beginner Workshop: October 2019
 
+# Please Note!
+The date for this event was changed due to a conflict for many people. The workshop is now being held on **October 4th, 2019**, at the same time and location as the original (1-5pm). The Evetbrite link below still lists the old date as of 1pm on Thrusday the 19th - this will be updated to reflect the new date soon.
+
 Short link for this repo: https://tinyurl.com/y2qfb2pk
 
 Join us for an introductory R workshop hosted by the UBC R Study Group! Coffee and snacks will be provided.

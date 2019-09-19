@@ -1,10 +1,10 @@
-# R Beginner Workshop: September 2019
+# R Beginner Workshop: October 2019
 
 Short link for this repo: https://tinyurl.com/y2qfb2pk
 
 Join us for an introductory R workshop hosted by the UBC R Study Group! Coffee and snacks will be provided.
 
-* When: Friday September 27th, 1-5pm
+* When: Friday October 4th, 1-5pm
 * Where: Koerner Library, Room 548 and 552 - Presentation Room
 * Registration: [click here](https://www.eventbrite.ca/e/r-beginner-workshop-tickets-68936650377) to register; fee is $20
 * [UBC R Study Group home page](https://ubc-r-study-group.github.io/studyGroup/)

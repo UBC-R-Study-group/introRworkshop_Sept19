@@ -1,5 +1,5 @@
 # Getting set up & oriented to Rstudio
-
+## scripts, environment, console, files
 
 # R projects .Rproj
 

@@ -1,0 +1,71 @@
+---
+title: "A Final Test!"
+output:
+  html_document:
+    code_folding: "show"
+---
+  
+<br>
+
+## Final Exercise
+
+The file "DE_genes_unfiltered.csv" contains a list of differentially expressed
+genes from experiment on bacteria. Your task is the followng: to import the
+data, create additional columns, filter on some sepecified thresholds, map
+between gene IDs and names, and create a plot.
+
+The points below outline in more detail what should be done:
+
+* Import the data (example_human_genes.csv) using the `read.csv()` function
+* Create a new column containing the absolute absolute fold change (Hint: use the `abs()` function)
+* Filter the genes on the follow conditions:
+  * Adjusted p-value less than or equal to 0.05
+  * Absolute fold change greater than or equal to `log2(1.5)`
+
+Next, use the provided mapping table (conversion_table.csv) to map between
+Ensembl ID and HGNC symbol.
+
+Once the data has been filtered, create a plot with log2 fold change on the x-axis and adjusted p-value on the x-axis
+
+* NOTE: use the `-log10(adjusted_pvalue)` for the plot
+* Colour the points by adjusted p-value
+* Set the transparancy to 70% (ALL points)
+* Add a title to the plot, and change the axis and legend titles to be more "readable"
+
+Additionally, generate a histogram of the base mean for each genes. Set the
+number of bins to 50. For an extra challenge, change the theme to black and
+white. Change the bars to blue, with a black outline. Hint: The function you
+want is a variant of the `theme()` function from ggplot.
+
+
+<br>
+
+### Solution
+
+```{r eval = FALSE, warning = FALSE}
+suppressPackageStartupMessages(library(tidyverse))
+
+DEGenes <- read.csv("../data/example_human_genes.csv")
+conversion_table <- read.csv("../data/conversion_table.csv")
+
+
+DEGenes_new <- DEGenes %>% 
+  mutate(abs_l2fc = abs(log2FoldChange)) %>% 
+  filter(padj <= 0.05, abs_l2fc >= log2(1.5))
+
+DEGenes_joined <- DEGenes_new %>% 
+  left_join(., conversion_table, by = c("gene" = "ensembl_gene_id"))
+
+ggplot(DEGenes_joined, aes(log2FoldChange, -log10(padj), colour = log2FoldChange)) +
+  geom_point(alpha = 0.7) +
+  labs(title = "Plot of DE Genes", 
+       x = "Log2 Fold Change", 
+       y ="Adjusted P-Value (-log10)",
+       colour = "Log2 Fold Change")
+
+ggplot(DEGenes_joined, aes(baseMean)) +
+  geom_histogram(bins = 50, fill = "blue", colour = "black") +
+  theme_bw()
+```
+
+<br>

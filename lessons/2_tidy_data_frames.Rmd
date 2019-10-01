@@ -1,6 +1,5 @@
 ---
 title: "Introduction to R and Some Best Practices Suggestions"
-author: "Amy Lee (@minisciencegirl)"
 date: '2019-09-20'
 output:
   html_document: 

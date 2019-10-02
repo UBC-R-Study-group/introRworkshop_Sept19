@@ -14,17 +14,20 @@
 
 # Libraries
 
+# basic adding 
 
 # Anatomy of a function
-
+name(argument1, argument2,...)
+c()
+help()
 
 # Assignment <-
-
+#pipe? 
 
 
 # Getting help()
 # links
-
+# back ticks ``
 
 # Data types
 # character, number, logical

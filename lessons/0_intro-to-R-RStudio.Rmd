@@ -10,6 +10,8 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+
 ## What are R and RStudio?
 
 For this workshop, we will be using R via RStudio.

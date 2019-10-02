@@ -44,3 +44,5 @@ Join the UBC R Study Group Slack channel:
 * Arnav Sood
 * Matt Whalen
 
+# Acknowledgments
+A big thank you to Amy Lee and Travis Blimkie who first put together these materials from the Data Carpentry Workshop: https://combine-australia.github.io/r-novice-gapminder/

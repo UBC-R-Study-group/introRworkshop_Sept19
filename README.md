@@ -37,17 +37,10 @@ Join the UBC R Study Group Slack channel:
 | 4:30pm | Wrap-Up and Survey | | |
 
 
-# Instructors
+# Instructors & Helpers
 
 * Travis Blimkie
 * Jasmine Lai
 * Arnav Sood
 * Matt Whalen
-
-
-# Helpers
-
-* Travis Blimkie
-* Jasmine Lai
-* Arnav Sood
 

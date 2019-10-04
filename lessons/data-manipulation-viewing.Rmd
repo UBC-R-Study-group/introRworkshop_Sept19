@@ -48,13 +48,37 @@ If you want to edit, you can use the ``edit()`` function.
 TTT <- edit(TTT)
 ```
 
+## Initial Inspection of Data 
+
+One nice function we can use is ``str``.
+
+```{r}
+str(FOTR)
+```
+
+We can also inspect individual columns. 
+
+Notice that RStudio helps us along by autofilling the various columns.
+
+```{r}
+str(FOTR$Race)
+```
+
 ## Quantitatively Analyzing Data
 
 The next step is figuring out how to analyze data. 
 
-We could try selecting individual columns.
+A simple thing to do is geneate summary statistics. 
 
-Notice that RStudio helps us along by autofilling the various columns.
+```{r}
+summary(ROTK)
+```
+
+```{r}
+summary(TTT)
+```
+
+We could try selecting individual columns.
 
 ```{r}
 ROTK$Race
@@ -72,5 +96,4 @@ ROTK[10]
 
 Why did that happen?
 
-## Gender Equality by Race in LOTR
 

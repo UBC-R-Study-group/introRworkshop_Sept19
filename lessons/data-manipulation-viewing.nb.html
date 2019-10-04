@@ -1758,11 +1758,45 @@ TTT &lt;- read_excel(&quot;/Users/arnavsood/sandbox/introRworkshop_Sept19/data/T
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
+<div id="initial-inspection-of-data" class="section level2">
+<h2>Initial Inspection of Data</h2>
+<p>One nice function we can use is <code>str</code>.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyKEZPVFIpXG5gYGAifQ== -->
+<pre class="r"><code>str(FOTR)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>We can also inspect individual columns.</p>
+<p>Notice that RStudio helps us along by autofilling the various columns.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyKEZPVFIkUmFjZSlcbmBgYCJ9 -->
+<pre class="r"><code>str(FOTR$Race)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
 <div id="quantitatively-analyzing-data" class="section level2">
 <h2>Quantitatively Analyzing Data</h2>
 <p>The next step is figuring out how to analyze data.</p>
+<p>A simple thing to do is geneate summary statistics.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShST1RLKVxuYGBgIn0= -->
+<pre class="r"><code>summary(ROTK)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShUVFQpXG5gYGAifQ== -->
+<pre class="r"><code>summary(TTT)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p>We could try selecting individual columns.</p>
-<p>Notice that RStudio helps us along by autofilling the various columns.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUk9USyRSYWNlXG5gYGAifQ== -->
@@ -1776,10 +1810,6 @@ TTT &lt;- read_excel(&quot;/Users/arnavsood/sandbox/introRworkshop_Sept19/data/T
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUk9US1syLCAyXVxuYGBgIn0= -->
 <pre class="r"><code>ROTK[2, 2]</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEhvYmJpdFxuTGV2ZWxzOiBFbGYgSG9iYml0IE1hblxuIn0= -->
-<pre><code>[1] Hobbit
-Levels: Elf Hobbit Man</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -1790,13 +1820,10 @@ Levels: Elf Hobbit Man</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Why did that happen?</p>
-</div>
-<div id="gender-equality-by-race-in-lotr" class="section level2">
-<h2>Gender Equality by Race in LOTR</h2>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiSW1wb3J0aW5nIERhdGEsIEJhc2ljIERhdGEgTWFuaXB1bGF0aW9uL1ZpZXdpbmciCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCiMjIE9idGFpbmluZyBEYXRhCgpGaXJzdCwgbGV0J3MgZG93bmxvYWQgdGhlIGRhdGEuCgpgYGB7cn0KUk9USyA8LSByZWFkLmNzdihmaWxlPSJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vVUJDLVItU3R1ZHktZ3JvdXAvaW50cm9Sd29ya3Nob3BfU2VwdDE5L21hc3Rlci9kYXRhL1RoZV9SZXR1cm5fT2ZfVGhlX0tpbmcuY3N2IikKYGBgCgpXZSBjb3VsZCBhbHNvIGxvYWQgZGlyZWN0bHkgZnJvbSBhIGZpbGUuCgpgYGB7cn0KRk9UUiA8LSByZWFkLmNzdihmaWxlPSIvVXNlcnMvYXJuYXZzb29kL3NhbmRib3gvaW50cm9Sd29ya3Nob3BfU2VwdDE5L2RhdGEvVGhlX0ZlbGxvd3NoaXBfT2ZfVGhlX1JpbmcuY3N2IikKYGBgCgpBbmQgd2UgY2FuIGxvYWQgZGlyZWN0bHkgZnJvbSBhbiBFeGNlbCBmaWxlLgoKYGBge3J9CmxpYnJhcnkoInJlYWR4bCIpClRUVCA8LSByZWFkX2V4Y2VsKCIvVXNlcnMvYXJuYXZzb29kL3NhbmRib3gvaW50cm9Sd29ya3Nob3BfU2VwdDE5L2RhdGEvVGhlX1R3b19Ub3dlcnMueGxzeCIpCmBgYAoKIyMgVmlld2luZyBEYXRhCgpUaGUgYmFzaWMgd2F5IHRvIHNlZSBhIHNtYWxsIGRhdGEgdGFibGUgaXMgd2l0aCB0aGUgYGBwcmludGBgIGZ1bmN0aW9uIAoKYGBge3J9CnByaW50KFJPVEspCmBgYAoKWW91IGNhbiBhbHNvIHVzZSB0aGUgYGBWaWV3YGAgZnVuY3Rpb24gdG8gb3BlbiBhbiBSU3R1ZGlvIHdpbmRvdy4gCgpgYGB7cn0KVmlldyhST1RLKQpgYGAKCiMjIEVkaXRpbmcgRGF0YSAKCkJ5IGRlZmF1bHQsIGRhdGEgdGFibGVzIGFyZW4ndCBvcGVuIHRvIG1vZGlmaWNhdGlvbi4gVGhpcyBoZWxwcyBwcmVzZXJ2ZSB0aGUgaW50ZWdyaXR5IG9mIHRoZSBkYXRhLiAKCklmIHlvdSB3YW50IHRvIGVkaXQsIHlvdSBjYW4gdXNlIHRoZSBgYGVkaXQoKWBgIGZ1bmN0aW9uLiAKCmBgYHtyfQpUVFQgPC0gZWRpdChUVFQpCmBgYAoKIyMgUXVhbnRpdGF0aXZlbHkgQW5hbHl6aW5nIERhdGEKClRoZSBuZXh0IHN0ZXAgaXMgZmlndXJpbmcgb3V0IGhvdyB0byBhbmFseXplIGRhdGEuIAoKV2UgY291bGQgdHJ5IHNlbGVjdGluZyBpbmRpdmlkdWFsIGNvbHVtbnMuCgpOb3RpY2UgdGhhdCBSU3R1ZGlvIGhlbHBzIHVzIGFsb25nIGJ5IGF1dG9maWxsaW5nIHRoZSB2YXJpb3VzIGNvbHVtbnMuCgpgYGB7cn0KUk9USyRSYWNlCmBgYAoKV2UgY2FuIGFsc28gc3Vic2V0IHRoZSBkYXRhIHF1YW50aXRhdGl2ZWx5LCBieSBpbmRleC4KCmBgYHtyfQpST1RLWzIsIDJdCmBgYAoKYGBge3J9ClJPVEtbMTBdCmBgYAoKV2h5IGRpZCB0aGF0IGhhcHBlbj8KCiMjIEdlbmRlciBFcXVhbGl0eSBieSBSYWNlIGluIExPVFIKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiSW1wb3J0aW5nIERhdGEsIEJhc2ljIERhdGEgTWFuaXB1bGF0aW9uL1ZpZXdpbmciCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCiMjIE9idGFpbmluZyBEYXRhCgpGaXJzdCwgbGV0J3MgZG93bmxvYWQgdGhlIGRhdGEuCgpgYGB7cn0KUk9USyA8LSByZWFkLmNzdihmaWxlPSJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vVUJDLVItU3R1ZHktZ3JvdXAvaW50cm9Sd29ya3Nob3BfU2VwdDE5L21hc3Rlci9kYXRhL1RoZV9SZXR1cm5fT2ZfVGhlX0tpbmcuY3N2IikKYGBgCgpXZSBjb3VsZCBhbHNvIGxvYWQgZGlyZWN0bHkgZnJvbSBhIGZpbGUuCgpgYGB7cn0KRk9UUiA8LSByZWFkLmNzdihmaWxlPSIvVXNlcnMvYXJuYXZzb29kL3NhbmRib3gvaW50cm9Sd29ya3Nob3BfU2VwdDE5L2RhdGEvVGhlX0ZlbGxvd3NoaXBfT2ZfVGhlX1JpbmcuY3N2IikKYGBgCgpBbmQgd2UgY2FuIGxvYWQgZGlyZWN0bHkgZnJvbSBhbiBFeGNlbCBmaWxlLgoKYGBge3J9CmxpYnJhcnkoInJlYWR4bCIpClRUVCA8LSByZWFkX2V4Y2VsKCIvVXNlcnMvYXJuYXZzb29kL3NhbmRib3gvaW50cm9Sd29ya3Nob3BfU2VwdDE5L2RhdGEvVGhlX1R3b19Ub3dlcnMueGxzeCIpCmBgYAoKIyMgVmlld2luZyBEYXRhCgpUaGUgYmFzaWMgd2F5IHRvIHNlZSBhIHNtYWxsIGRhdGEgdGFibGUgaXMgd2l0aCB0aGUgYGBwcmludGBgIGZ1bmN0aW9uIAoKYGBge3J9CnByaW50KFJPVEspCmBgYAoKWW91IGNhbiBhbHNvIHVzZSB0aGUgYGBWaWV3YGAgZnVuY3Rpb24gdG8gb3BlbiBhbiBSU3R1ZGlvIHdpbmRvdy4gCgpgYGB7cn0KVmlldyhST1RLKQpgYGAKCiMjIEVkaXRpbmcgRGF0YSAKCkJ5IGRlZmF1bHQsIGRhdGEgdGFibGVzIGFyZW4ndCBvcGVuIHRvIG1vZGlmaWNhdGlvbi4gVGhpcyBoZWxwcyBwcmVzZXJ2ZSB0aGUgaW50ZWdyaXR5IG9mIHRoZSBkYXRhLiAKCklmIHlvdSB3YW50IHRvIGVkaXQsIHlvdSBjYW4gdXNlIHRoZSBgYGVkaXQoKWBgIGZ1bmN0aW9uLiAKCmBgYHtyfQpUVFQgPC0gZWRpdChUVFQpCmBgYAoKIyMgSW5pdGlhbCBJbnNwZWN0aW9uIG9mIERhdGEgCgpPbmUgbmljZSBmdW5jdGlvbiB3ZSBjYW4gdXNlIGlzIGBgc3RyYGAuCgpgYGB7cn0Kc3RyKEZPVFIpCmBgYAoKV2UgY2FuIGFsc28gaW5zcGVjdCBpbmRpdmlkdWFsIGNvbHVtbnMuIAoKTm90aWNlIHRoYXQgUlN0dWRpbyBoZWxwcyB1cyBhbG9uZyBieSBhdXRvZmlsbGluZyB0aGUgdmFyaW91cyBjb2x1bW5zLgoKYGBge3J9CnN0cihGT1RSJFJhY2UpCmBgYAoKIyMgUXVhbnRpdGF0aXZlbHkgQW5hbHl6aW5nIERhdGEKClRoZSBuZXh0IHN0ZXAgaXMgZmlndXJpbmcgb3V0IGhvdyB0byBhbmFseXplIGRhdGEuIAoKQSBzaW1wbGUgdGhpbmcgdG8gZG8gaXMgZ2VuZWF0ZSBzdW1tYXJ5IHN0YXRpc3RpY3MuIAoKYGBge3J9CnN1bW1hcnkoUk9USykKYGBgCgpgYGB7cn0Kc3VtbWFyeShUVFQpCmBgYAoKV2UgY291bGQgdHJ5IHNlbGVjdGluZyBpbmRpdmlkdWFsIGNvbHVtbnMuCgpgYGB7cn0KUk9USyRSYWNlCmBgYAoKV2UgY2FuIGFsc28gc3Vic2V0IHRoZSBkYXRhIHF1YW50aXRhdGl2ZWx5LCBieSBpbmRleC4KCmBgYHtyfQpST1RLWzIsIDJdCmBgYAoKYGBge3J9ClJPVEtbMTBdCmBgYAoKV2h5IGRpZCB0aGF0IGhhcHBlbj8KCgo=</div>
 
 
 

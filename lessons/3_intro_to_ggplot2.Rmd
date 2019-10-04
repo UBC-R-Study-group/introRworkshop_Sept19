@@ -15,6 +15,10 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = "")
 ```
 
+```{r package_options, include=FALSE}
+knitr::opts_knit$set(global.par = TRUE)
+```
+
 ```{r global_options, include=FALSE}
 par( mar=c(5,5,1,1)+0.1, las=1, xpd=T, cex=0.7, cex.lab=1.4, cex.axis=1.4, pch=19 ) # make some similar graphical parameters -- see ?par
 ```

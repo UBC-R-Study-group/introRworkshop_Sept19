@@ -1,0 +1,76 @@
+---
+title: "Importing Data, Basic Data Manipulation/Viewing"
+output: html_notebook
+---
+
+## Obtaining Data
+
+First, let's download the data.
+
+```{r}
+ROTK <- read.csv(file="https://raw.githubusercontent.com/UBC-R-Study-group/introRworkshop_Sept19/master/data/The_Return_Of_The_King.csv")
+```
+
+We could also load directly from a file.
+
+```{r}
+FOTR <- read.csv(file="/Users/arnavsood/sandbox/introRworkshop_Sept19/data/The_Fellowship_Of_The_Ring.csv")
+```
+
+And we can load directly from an Excel file.
+
+```{r}
+library("readxl")
+TTT <- read_excel("/Users/arnavsood/sandbox/introRworkshop_Sept19/data/The_Two_Towers.xlsx")
+```
+
+## Viewing Data
+
+The basic way to see a small data table is with the ``print`` function 
+
+```{r}
+print(ROTK)
+```
+
+You can also use the ``View`` function to open an RStudio window. 
+
+```{r}
+View(ROTK)
+```
+
+## Editing Data 
+
+By default, data tables aren't open to modification. This helps preserve the integrity of the data. 
+
+If you want to edit, you can use the ``edit()`` function. 
+
+```{r}
+TTT <- edit(TTT)
+```
+
+## Quantitatively Analyzing Data
+
+The next step is figuring out how to analyze data. 
+
+We could try selecting individual columns.
+
+Notice that RStudio helps us along by autofilling the various columns.
+
+```{r}
+ROTK$Race
+```
+
+We can also subset the data quantitatively, by index.
+
+```{r}
+ROTK[2, 2]
+```
+
+```{r}
+ROTK[10]
+```
+
+Why did that happen?
+
+## Gender Equality by Race in LOTR
+

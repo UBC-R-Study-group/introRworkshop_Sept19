@@ -122,10 +122,7 @@ on the x-axis.
 ### Solution to Challenge 1
 Here is one possible solution:
 ```{r}
-ggplot(data = gapminder, aes(x = year, y = lifeExp)) + 
-  geom_point()
 
-plot( lifeExp ~ year, gapminder )
 ```
 
 <br>
@@ -139,12 +136,7 @@ column. What trends do you see in the data? Are they what you expected?
 
 ### Solution to Challenge 2
 ```{r}
-ggplot(data = gapminder, aes(x = year, y = lifeExp, colour = continent)) +
- geom_point()
 
-par( mar=c(5,5,1,6)+0.1, las=1, xpd=T )
-plot( lifeExp ~ year, gapminder, col=as.numeric(continent) )
-legend( 2010, 80, legend = unique(gapminder$continent), col=1:length(unique(gapminder$continent)), pch=19 )
 ```
 
 <br>
@@ -233,9 +225,7 @@ happened?
 Switch the order of the point and line layers from the previous example. What
 happened?
 ```{r}
-ggplot(gapminder, aes(year, lifeExp, group = country)) +
-  geom_point() + 
-  geom_line(aes(colour = continent))
+
 ```
 
 <br>
@@ -322,10 +312,7 @@ example. Hint: do not use the `aes` function.
 
 ### Solution to challenge 4a
 ```{r}
-ggplot(gapminder, aes(gdpPercap, lifeExp)) +
-  geom_point(size = 3, colour = "goldenrod1") + 
-  scale_x_log10() +
-  geom_smooth(method = "lm", size = 1.5,col='dodgerblue')
+
 ```
 
 Learn more about [Colors in R](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
@@ -341,10 +328,7 @@ Modify Challenge 4 so that the points are now a different shape and are
 coloured by continent with new trendlines.
 Hint: The colour argument can be used inside the aesthetic.
 ```{r}
-ggplot(gapminder, aes(gdpPercap, lifeExp, colour = continent)) +
-  geom_point(shape=19, size = 2, alpha = 0.5) + 
-  scale_x_log10() +
-  geom_smooth(method = "lm", size = 1.5)
+
 ```
 
 <br>

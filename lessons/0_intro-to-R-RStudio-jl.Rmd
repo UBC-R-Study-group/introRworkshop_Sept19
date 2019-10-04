@@ -19,6 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Couple of Housekeeping things
 
 While you are waiting have you done the prerequisites on your computer?
+
 1. install latest version of R
 
 2. install latest version of Rstudio
@@ -45,7 +46,7 @@ Matt
 - with challenges to practice your knowledge
 - ask lots of questions!
 
-We will be live coding so feel free to follow along!
+We will be live coding so follow along!
 - the best way to learn is to try it yourself onyour own computer
 
 ## How to use the stickies
@@ -53,13 +54,6 @@ Instead of having your hand up and coding one handed we have this system instead
 Red - help!
 Green - Good
 - when we are not teaching we will act as helpers so put up a red stickie if you need our help
-
-## Download your data
-1. go to: 
-https://github.com/UBC-R-Study-group/introRworkshop_Sept19
-shortened link - https://tinyurl.com/y2qfb2pk
-2. click the green button
-3. save it somewhere you can access later (we will be using this in the next topic)
 
 ## What are R and RStudio?
 
@@ -88,7 +82,9 @@ After you open RStudio, you should see the following 3 panels:
 ## Code basics
 - typing into the console then pressing enter, R will compute immediately
 - typing into an R script will allow you to re-run your code over and over (reproducible)
-- workflow is usually: (1) type your code out in R script
+- workflow is usually: 
+
+(1) type your code out in R script
 (2) send pieces of code to the console to be evaluated
 (3) debug (aka - fix your mistakes) and repeat
 
@@ -135,17 +131,23 @@ base R comes with some functions like `str()`
 ```{r}
 sum(1,2,3) #adds all the numbers
 mean(1,2,3)
-paste(1,2)
-paste0("a", "fuzzy", "lama")
 ```
 
 #### Getting Help
-- look at the description
+##### 1. Help documentation
+- look at the description, usage, arguments and scroll to the bottom for examples
 ```{r}
 help(str)
 ```
 
-try loking at the help documentation for one of the functions we have used so far - ie. `sum()`
+##### Mini challenge
+try loking at the help documentation for `paste`
+- read how it works and try using it
+- what does it do?
+
+##### Online help
+R for data science book https://r4ds.had.co.nz/
+Google & Stackoverflow `combine two characters in R`
 
 ## What are R packages?
 But what if you want to do more?
@@ -246,4 +248,11 @@ Typically, I organize each data analysis into a project using RStudio Project. I
 - This will tell R to look there as your current working directory
 - This helps with organizing your work!
 
-
+#### set a new Rproject as your downloaded file
+1. go to: https://tinyurl.com/y2qfb2pk
+2. click the green button
+3. save it somewhere you can access later 
+4. click the top right hand side witht he blue cube
+5. click new project
+6. click existing directory
+7. navigate to the directory to were you saved the downloaded file from before

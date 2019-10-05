@@ -1,6 +1,6 @@
 # R Beginner Workshop: October 2019
 
-### Survey Link https://forms.gle/3npKrTDzapVXWubm8
+### Post Workshop Survey Link https://forms.gle/3npKrTDzapVXWubm8
 
 # Please Note!
 The date for this event was changed due to a conflict for many people. The workshop is now being held on **October 4th, 2019**, at the same time and location as the original (1-5pm).

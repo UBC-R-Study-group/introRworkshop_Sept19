@@ -9,12 +9,6 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-## Reminder to self:
-- bring white board markers & cable
-- change back to default white layout
-- larger font size
-- url to data on the board
-- turn off notifications & sound
 
 ## Couple of Housekeeping things
 

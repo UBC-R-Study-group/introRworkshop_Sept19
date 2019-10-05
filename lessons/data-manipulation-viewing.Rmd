@@ -1,6 +1,8 @@
 ---
 title: "Importing Data, Basic Data Manipulation/Viewing"
 output: html_notebook
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ## Obtaining Data
@@ -14,14 +16,14 @@ ROTK <- read.csv(file="https://raw.githubusercontent.com/UBC-R-Study-group/intro
 We could also load directly from a file.
 
 ```{r}
-FOTR <- read.csv(file="/Users/arnavsood/sandbox/introRworkshop_Sept19/data/The_Fellowship_Of_The_Ring.csv")
+FOTR <- read.csv("data/The_Fellowship_Of_The_Ring.csv")
 ```
 
 And we can load directly from an Excel file.
 
 ```{r}
 library("readxl")
-TTT <- read_excel("/Users/arnavsood/sandbox/introRworkshop_Sept19/data/The_Two_Towers.xlsx")
+TTT <- read_excel("../data/The_Two_Towers.xlsx", col_names = TRUE)
 ```
 
 ## Viewing Data
@@ -45,7 +47,7 @@ By default, data tables aren't open to modification. This helps preserve the int
 If you want to edit, you can use the ``edit()`` function. 
 
 ```{r}
-TTT <- edit(TTT)
+TTT_edited <- edit(TTT)
 ```
 
 ## Initial Inspection of Data 
@@ -53,7 +55,7 @@ TTT <- edit(TTT)
 One nice function we can use is ``str``.
 
 ```{r}
-str(FOTR)
+str(ROTK)
 ```
 
 We can also inspect individual columns. 
@@ -90,10 +92,5 @@ We can also subset the data quantitatively, by index.
 ROTK[2, 2]
 ```
 
-```{r}
-ROTK[10]
-```
-
-Why did that happen?
 
 

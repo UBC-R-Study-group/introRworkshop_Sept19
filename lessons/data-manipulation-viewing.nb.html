@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -74,7 +75,7 @@ display: none;
 padding: 0 4px 0 4px;
 }
 .pagedtable .even {
-background-color: #fcfcfc;
+background-color: rgba(140, 140, 140, 0.1);
 }
 .pagedtable-padding-col {
 display: none;
@@ -1478,12 +1479,12 @@ window.initializeCodeFolding = function(show) {
   var currentIndex = 1;
 
   // select all R code blocks
-  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan');
+  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia');
   rCodeBlocks.each(function() {
 
     // create a collapsable div to wrap the code in
     var div = $('<div class="collapse r-code-collapse"></div>');
-    if (show)
+    if (show || $(this)[0].classList.contains('fold-show'))
       div.addClass('in');
     var id = 'rcode-643E0F36' + currentIndex++;
     div.attr('id', id);
@@ -1599,9 +1600,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -1615,7 +1614,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1625,6 +1623,9 @@ img {
 }
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -1654,27 +1655,76 @@ button.code-folding-btn:focus {
 </style>
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 <style type="text/css">
 .code-folding-btn { margin-bottom: 4px; }
 </style>
-<script>
-$(document).ready(function () {
-  window.initializeSourceEmbed("data-manipulation-viewing.Rmd");
-  window.initializeCodeFolding("show" === "show");
-});
-</script>
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -1704,26 +1754,37 @@ $(document).ready(function () {
 <p>First, let’s download the data.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUk9USyA8LSByZWFkLmNzdihmaWxlPVwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1VCQy1SLVN0dWR5LWdyb3VwL2ludHJvUndvcmtzaG9wX1NlcHQxOS9tYXN0ZXIvZGF0YS9UaGVfUmV0dXJuX09mX1RoZV9LaW5nLmNzdlwiKVxuYGBgIn0= -->
-<pre class="r"><code>ROTK &lt;- read.csv(file=&quot;https://raw.githubusercontent.com/UBC-R-Study-group/introRworkshop_Sept19/master/data/The_Return_Of_The_King.csv&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuUk9USyA8LSByZWFkLmNzdihmaWxlPVxcaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1VCQy1SLVN0dWR5LWdyb3VwL2ludHJvUndvcmtzaG9wX1NlcHQxOS9tYXN0ZXIvZGF0YS9UaGVfUmV0dXJuX09mX1RoZV9LaW5nLmNzdlxcKVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r ROTK &lt;- read.csv(file=://raw.githubusercontent.com/UBC-R-Study-group/introRworkshop_Sept19/master/data/The_Return_Of_The_King.csv)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>We could also load directly from a file.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRk9UUiA8LSByZWFkLmNzdihmaWxlPVwiL1VzZXJzL2FybmF2c29vZC9zYW5kYm94L2ludHJvUndvcmtzaG9wX1NlcHQxOS9kYXRhL1RoZV9GZWxsb3dzaGlwX09mX1RoZV9SaW5nLmNzdlwiKVxuYGBgIn0= -->
-<pre class="r"><code>FOTR &lt;- read.csv(file=&quot;/Users/arnavsood/sandbox/introRworkshop_Sept19/data/The_Fellowship_Of_The_Ring.csv&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRk9UUiA8LSByZWFkLmNzdihmaWxlPVwiVGhlX0ZlbGxvd3NoaXBfT2ZfVGhlX1JpbmcuY3N2XCIpXG5cbmBgYCJ9 -->
+<pre class="r"><code>FOTR &lt;- read.csv(file=&quot;The_Fellowship_Of_The_Ring.csv&quot;)
+</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiY2Fubm90IG9wZW4gZmlsZSAnVGhlX0ZlbGxvd3NoaXBfT2ZfVGhlX1JpbmcuY3N2JzogTm8gc3VjaCBmaWxlIG9yIGRpcmVjdG9yeUVycm9yIGluIGZpbGUoZmlsZSwgXCJydFwiKSA6IGNhbm5vdCBvcGVuIHRoZSBjb25uZWN0aW9uXG4ifQ== -->
+<pre><code>cannot open file 'The_Fellowship_Of_The_Ring.csv': No such file or directoryError in file(file, &quot;rt&quot;) : cannot open the connection</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>And we can load directly from an Excel file.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcInJlYWR4bFwiKVxuVFRUIDwtIHJlYWRfZXhjZWwoXCIvVXNlcnMvYXJuYXZzb29kL3NhbmRib3gvaW50cm9Sd29ya3Nob3BfU2VwdDE5L2RhdGEvVGhlX1R3b19Ub3dlcnMueGxzeFwiKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcInJlYWR4bFwiKVxuVFRUIDwtIHJlYWRfZXhjZWwoXCIuLi9kYXRhL1RoZV9Ud29fVG93ZXJzLnhsc3hcIiwgY29sX25hbWVzID0gVFJVRSlcbmBgYCJ9 -->
 <pre class="r"><code>library(&quot;readxl&quot;)
-TTT &lt;- read_excel(&quot;/Users/arnavsood/sandbox/introRworkshop_Sept19/data/The_Two_Towers.xlsx&quot;)</code></pre>
+TTT &lt;- read_excel(&quot;../data/The_Two_Towers.xlsx&quot;, col_names = TRUE)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4yXG4qIGBgIC0+IC4uLjNcbiogYGAgLT4gLi4uNFxuIn0= -->
+<pre><code>New names:
+* `` -&gt; ...2
+* `` -&gt; ...3
+* `` -&gt; ...4</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1735,6 +1796,13 @@ TTT &lt;- read_excel(&quot;/Users/arnavsood/sandbox/introRworkshop_Sept19/data/T
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJpbnQoUk9USylcbmBgYCJ9 -->
 <pre class="r"><code>print(ROTK)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NCwibnJvdyI6M30sInJkZiI6Ikg0c0lBQUFBQUFBQUEzMVNTMDdETUJDZHhFNVJMSDRTRXV0ZW9ObXc0UUJRSWFFS0tTcFN0MDdxdEJHdVhWd0hXSElQRHNMdFd1ekVBeVFTUklyOFpqeHZucC9IK2MzaWlpMFlBQkFnb3doSTRpQWtqL1BwNUJxQXhpNklnRUxxMXpkWGRPRUFkZXRKeS9DYjMzK3ZlQ1RGaTVBN2g4NS9aUy9uYXpIT2hXMk1HajlVWXgvZDEybzE0Q2FsNUxzaGRWVHgwbXJqMEg0Z0gzZll0NGdQZ1VVQ2k5ektDaHZjNmFLb0xXN011T280NVBDZkVxRFNaNmNVSGYva0lyZlBuZ0hTajZFQnhUY0NEZENRcE5OYWJoRG52QlFvTnhVYkxqR2lNNC83N1ZLalh6TnM2YlhqZDJnLzhvY0R0dVNXWjVWeGxNNUZyOTJSM3RwYUs5Y3M5dE5NQnVUSURCSm5qZkxpeTBtNWJ0U1RmeGJBd3RWRE9GQVVMZ2t4N1NRcEhpeEJyMEt0YW9WZUU4a0xJVU53Nmt5MkhyT3RxUldPaWJuc0xyUGFjcXhqcFphWTZTYTAvd0lsZjhZYnhBSUFBQT09In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Film"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["Race"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["Female"],"name":[3],"type":["int"],"align":["right"]},{"label":["Male"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"The Return Of The King","2":"Elf","3":"183","4":"510"},{"1":"The Return Of The King","2":"Hobbit","3":"2","4":"2673"},{"1":"The Return Of The King","2":"Man","3":"268","4":"2459"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>You can also use the <code>View</code> function to open an RStudio window.</p>
@@ -1752,8 +1820,8 @@ TTT &lt;- read_excel(&quot;/Users/arnavsood/sandbox/introRworkshop_Sept19/data/T
 <p>If you want to edit, you can use the <code>edit()</code> function.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVFRUIDwtIGVkaXQoVFRUKVxuYGBgIn0= -->
-<pre class="r"><code>TTT &lt;- edit(TTT)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVFRUX2VkaXRlZCA8LSBlZGl0KFRUVClcbmBgYCJ9 -->
+<pre class="r"><code>TTT_edited &lt;- edit(TTT)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1763,9 +1831,16 @@ TTT &lt;- read_excel(&quot;/Users/arnavsood/sandbox/introRworkshop_Sept19/data/T
 <p>One nice function we can use is <code>str</code>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyKEZPVFIpXG5gYGAifQ== -->
-<pre class="r"><code>str(FOTR)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyKFJPVEspXG5gYGAifQ== -->
+<pre class="r"><code>str(ROTK)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJ2RhdGEuZnJhbWUnOlx0MyBvYnMuIG9mICA0IHZhcmlhYmxlczpcbiAkIEZpbG0gIDogRmFjdG9yIHcvIDEgbGV2ZWwgXCJUaGUgUmV0dXJuIE9mIFRoZSBLaW5nXCI6IDEgMSAxXG4gJCBSYWNlICA6IEZhY3RvciB3LyAzIGxldmVscyBcIkVsZlwiLFwiSG9iYml0XCIsLi46IDEgMiAzXG4gJCBGZW1hbGU6IGludCAgMTgzIDIgMjY4XG4gJCBNYWxlICA6IGludCAgNTEwIDI2NzMgMjQ1OVxuIn0= -->
+<pre><code>'data.frame':   3 obs. of  4 variables:
+ $ Film  : Factor w/ 1 level &quot;The Return Of The King&quot;: 1 1 1
+ $ Race  : Factor w/ 3 levels &quot;Elf&quot;,&quot;Hobbit&quot;,..: 1 2 3
+ $ Female: int  183 2 268
+ $ Male  : int  510 2673 2459</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>We can also inspect individual columns.</p>
@@ -1775,6 +1850,9 @@ TTT &lt;- read_excel(&quot;/Users/arnavsood/sandbox/introRworkshop_Sept19/data/T
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyKEZPVFIkUmFjZSlcbmBgYCJ9 -->
 <pre class="r"><code>str(FOTR$Race)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIEZhY3RvciB3LyAzIGxldmVscyBcIkVsZlwiLFwiSG9iYml0XCIsLi46IDEgMiAzXG4ifQ== -->
+<pre><code> Factor w/ 3 levels &quot;Elf&quot;,&quot;Hobbit&quot;,..: 1 2 3</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1787,6 +1865,15 @@ TTT &lt;- read_excel(&quot;/Users/arnavsood/sandbox/introRworkshop_Sept19/data/T
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShST1RLKVxuYGBgIn0= -->
 <pre class="r"><code>summary(ROTK)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgICAgICAgICAgICAgRmlsbSAgICAgICBSYWNlICAgICAgIEZlbWFsZSAgICAgICAgICAgTWFsZSAgICAgXG4gVGhlIFJldHVybiBPZiBUaGUgS2luZzozICAgRWxmICAgOjEgICBNaW4uICAgOiAgMi4wICAgTWluLiAgIDogNTEwICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBIb2JiaXQ6MSAgIDFzdCBRdS46IDkyLjUgICAxc3QgUXUuOjE0ODQgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIE1hbiAgIDoxICAgTWVkaWFuIDoxODMuMCAgIE1lZGlhbiA6MjQ1OSAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBNZWFuICAgOjE1MS4wICAgTWVhbiAgIDoxODgxICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDNyZCBRdS46MjI1LjUgICAzcmQgUXUuOjI1NjYgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTWF4LiAgIDoyNjguMCAgIE1heC4gICA6MjY3MyAgXG4ifQ== -->
+<pre><code>                     Film       Race       Female           Male     
+ The Return Of The King:3   Elf   :1   Min.   :  2.0   Min.   : 510  
+                            Hobbit:1   1st Qu.: 92.5   1st Qu.:1484  
+                            Man   :1   Median :183.0   Median :2459  
+                                       Mean   :151.0   Mean   :1881  
+                                       3rd Qu.:225.5   3rd Qu.:2566  
+                                       Max.   :268.0   Max.   :2673  </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -1794,6 +1881,16 @@ TTT &lt;- read_excel(&quot;/Users/arnavsood/sandbox/introRworkshop_Sept19/data/T
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShUVFQpXG5gYGAifQ== -->
 <pre class="r"><code>summary(TTT)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFRoZV9Ud29fVG93ZXJzICAgICAgICAgLi4uMiAgICAgICAgICAgICAgIC4uLjMgICAgICAgICAgXG4gTGVuZ3RoOjUgICAgICAgICAgIExlbmd0aDo1ICAgICAgICAgICBMZW5ndGg6NSAgICAgICAgICBcbiBDbGFzcyA6Y2hhcmFjdGVyICAgQ2xhc3MgOmNoYXJhY3RlciAgIENsYXNzIDpjaGFyYWN0ZXIgIFxuIE1vZGUgIDpjaGFyYWN0ZXIgICBNb2RlICA6Y2hhcmFjdGVyICAgTW9kZSAgOmNoYXJhY3RlciAgXG4gICAgIC4uLjQgICAgICAgICAgXG4gTGVuZ3RoOjUgICAgICAgICAgXG4gQ2xhc3MgOmNoYXJhY3RlciAgXG4gTW9kZSAgOmNoYXJhY3RlciAgXG4ifQ== -->
+<pre><code> The_Two_Towers         ...2               ...3          
+ Length:5           Length:5           Length:5          
+ Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character  
+     ...4          
+ Length:5          
+ Class :character  
+ Mode  :character  </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>We could try selecting individual columns.</p>
@@ -1802,6 +1899,10 @@ TTT &lt;- read_excel(&quot;/Users/arnavsood/sandbox/introRworkshop_Sept19/data/T
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUk9USyRSYWNlXG5gYGAifQ== -->
 <pre class="r"><code>ROTK$Race</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEVsZiAgICBIb2JiaXQgTWFuICAgXG5MZXZlbHM6IEVsZiBIb2JiaXQgTWFuXG4ifQ== -->
+<pre><code>[1] Elf    Hobbit Man   
+Levels: Elf Hobbit Man</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>We can also subset the data quantitatively, by index.</p>
@@ -1810,20 +1911,16 @@ TTT &lt;- read_excel(&quot;/Users/arnavsood/sandbox/introRworkshop_Sept19/data/T
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUk9US1syLCAyXVxuYGBgIn0= -->
 <pre class="r"><code>ROTK[2, 2]</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEhvYmJpdFxuTGV2ZWxzOiBFbGYgSG9iYml0IE1hblxuIn0= -->
+<pre><code>[1] Hobbit
+Levels: Elf Hobbit Man</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUk9US1sxMF1cbmBgYCJ9 -->
-<pre class="r"><code>ROTK[10]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Why did that happen?</p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiSW1wb3J0aW5nIERhdGEsIEJhc2ljIERhdGEgTWFuaXB1bGF0aW9uL1ZpZXdpbmciCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCiMjIE9idGFpbmluZyBEYXRhCgpGaXJzdCwgbGV0J3MgZG93bmxvYWQgdGhlIGRhdGEuCgpgYGB7cn0KUk9USyA8LSByZWFkLmNzdihmaWxlPSJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vVUJDLVItU3R1ZHktZ3JvdXAvaW50cm9Sd29ya3Nob3BfU2VwdDE5L21hc3Rlci9kYXRhL1RoZV9SZXR1cm5fT2ZfVGhlX0tpbmcuY3N2IikKYGBgCgpXZSBjb3VsZCBhbHNvIGxvYWQgZGlyZWN0bHkgZnJvbSBhIGZpbGUuCgpgYGB7cn0KRk9UUiA8LSByZWFkLmNzdihmaWxlPSIvVXNlcnMvYXJuYXZzb29kL3NhbmRib3gvaW50cm9Sd29ya3Nob3BfU2VwdDE5L2RhdGEvVGhlX0ZlbGxvd3NoaXBfT2ZfVGhlX1JpbmcuY3N2IikKYGBgCgpBbmQgd2UgY2FuIGxvYWQgZGlyZWN0bHkgZnJvbSBhbiBFeGNlbCBmaWxlLgoKYGBge3J9CmxpYnJhcnkoInJlYWR4bCIpClRUVCA8LSByZWFkX2V4Y2VsKCIvVXNlcnMvYXJuYXZzb29kL3NhbmRib3gvaW50cm9Sd29ya3Nob3BfU2VwdDE5L2RhdGEvVGhlX1R3b19Ub3dlcnMueGxzeCIpCmBgYAoKIyMgVmlld2luZyBEYXRhCgpUaGUgYmFzaWMgd2F5IHRvIHNlZSBhIHNtYWxsIGRhdGEgdGFibGUgaXMgd2l0aCB0aGUgYGBwcmludGBgIGZ1bmN0aW9uIAoKYGBge3J9CnByaW50KFJPVEspCmBgYAoKWW91IGNhbiBhbHNvIHVzZSB0aGUgYGBWaWV3YGAgZnVuY3Rpb24gdG8gb3BlbiBhbiBSU3R1ZGlvIHdpbmRvdy4gCgpgYGB7cn0KVmlldyhST1RLKQpgYGAKCiMjIEVkaXRpbmcgRGF0YSAKCkJ5IGRlZmF1bHQsIGRhdGEgdGFibGVzIGFyZW4ndCBvcGVuIHRvIG1vZGlmaWNhdGlvbi4gVGhpcyBoZWxwcyBwcmVzZXJ2ZSB0aGUgaW50ZWdyaXR5IG9mIHRoZSBkYXRhLiAKCklmIHlvdSB3YW50IHRvIGVkaXQsIHlvdSBjYW4gdXNlIHRoZSBgYGVkaXQoKWBgIGZ1bmN0aW9uLiAKCmBgYHtyfQpUVFQgPC0gZWRpdChUVFQpCmBgYAoKIyMgSW5pdGlhbCBJbnNwZWN0aW9uIG9mIERhdGEgCgpPbmUgbmljZSBmdW5jdGlvbiB3ZSBjYW4gdXNlIGlzIGBgc3RyYGAuCgpgYGB7cn0Kc3RyKEZPVFIpCmBgYAoKV2UgY2FuIGFsc28gaW5zcGVjdCBpbmRpdmlkdWFsIGNvbHVtbnMuIAoKTm90aWNlIHRoYXQgUlN0dWRpbyBoZWxwcyB1cyBhbG9uZyBieSBhdXRvZmlsbGluZyB0aGUgdmFyaW91cyBjb2x1bW5zLgoKYGBge3J9CnN0cihGT1RSJFJhY2UpCmBgYAoKIyMgUXVhbnRpdGF0aXZlbHkgQW5hbHl6aW5nIERhdGEKClRoZSBuZXh0IHN0ZXAgaXMgZmlndXJpbmcgb3V0IGhvdyB0byBhbmFseXplIGRhdGEuIAoKQSBzaW1wbGUgdGhpbmcgdG8gZG8gaXMgZ2VuZWF0ZSBzdW1tYXJ5IHN0YXRpc3RpY3MuIAoKYGBge3J9CnN1bW1hcnkoUk9USykKYGBgCgpgYGB7cn0Kc3VtbWFyeShUVFQpCmBgYAoKV2UgY291bGQgdHJ5IHNlbGVjdGluZyBpbmRpdmlkdWFsIGNvbHVtbnMuCgpgYGB7cn0KUk9USyRSYWNlCmBgYAoKV2UgY2FuIGFsc28gc3Vic2V0IHRoZSBkYXRhIHF1YW50aXRhdGl2ZWx5LCBieSBpbmRleC4KCmBgYHtyfQpST1RLWzIsIDJdCmBgYAoKYGBge3J9ClJPVEtbMTBdCmBgYAoKV2h5IGRpZCB0aGF0IGhhcHBlbj8KCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiSW1wb3J0aW5nIERhdGEsIEJhc2ljIERhdGEgTWFuaXB1bGF0aW9uL1ZpZXdpbmciCm91dHB1dDogaHRtbF9ub3RlYm9vawplZGl0b3Jfb3B0aW9uczogCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGlubGluZQotLS0KCiMjIE9idGFpbmluZyBEYXRhCgpGaXJzdCwgbGV0J3MgZG93bmxvYWQgdGhlIGRhdGEuCgpgYGB7cn0KUk9USyA8LSByZWFkLmNzdihmaWxlPSJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vVUJDLVItU3R1ZHktZ3JvdXAvaW50cm9Sd29ya3Nob3BfU2VwdDE5L21hc3Rlci9kYXRhL1RoZV9SZXR1cm5fT2ZfVGhlX0tpbmcuY3N2IikKYGBgCgpXZSBjb3VsZCBhbHNvIGxvYWQgZGlyZWN0bHkgZnJvbSBhIGZpbGUuCgpgYGB7cn0KRk9UUiA8LSByZWFkLmNzdigiZGF0YS9UaGVfRmVsbG93c2hpcF9PZl9UaGVfUmluZy5jc3YiKQpgYGAKCkFuZCB3ZSBjYW4gbG9hZCBkaXJlY3RseSBmcm9tIGFuIEV4Y2VsIGZpbGUuCgpgYGB7cn0KbGlicmFyeSgicmVhZHhsIikKVFRUIDwtIHJlYWRfZXhjZWwoIi4uL2RhdGEvVGhlX1R3b19Ub3dlcnMueGxzeCIsIGNvbF9uYW1lcyA9IFRSVUUpCmBgYAoKIyMgVmlld2luZyBEYXRhCgpUaGUgYmFzaWMgd2F5IHRvIHNlZSBhIHNtYWxsIGRhdGEgdGFibGUgaXMgd2l0aCB0aGUgYGBwcmludGBgIGZ1bmN0aW9uIAoKYGBge3J9CnByaW50KFJPVEspCmBgYAoKWW91IGNhbiBhbHNvIHVzZSB0aGUgYGBWaWV3YGAgZnVuY3Rpb24gdG8gb3BlbiBhbiBSU3R1ZGlvIHdpbmRvdy4gCgpgYGB7cn0KVmlldyhST1RLKQpgYGAKCiMjIEVkaXRpbmcgRGF0YSAKCkJ5IGRlZmF1bHQsIGRhdGEgdGFibGVzIGFyZW4ndCBvcGVuIHRvIG1vZGlmaWNhdGlvbi4gVGhpcyBoZWxwcyBwcmVzZXJ2ZSB0aGUgaW50ZWdyaXR5IG9mIHRoZSBkYXRhLiAKCklmIHlvdSB3YW50IHRvIGVkaXQsIHlvdSBjYW4gdXNlIHRoZSBgYGVkaXQoKWBgIGZ1bmN0aW9uLiAKCmBgYHtyfQpUVFRfZWRpdGVkIDwtIGVkaXQoVFRUKQpgYGAKCiMjIEluaXRpYWwgSW5zcGVjdGlvbiBvZiBEYXRhIAoKT25lIG5pY2UgZnVuY3Rpb24gd2UgY2FuIHVzZSBpcyBgYHN0cmBgLgoKYGBge3J9CnN0cihST1RLKQpgYGAKCldlIGNhbiBhbHNvIGluc3BlY3QgaW5kaXZpZHVhbCBjb2x1bW5zLiAKCk5vdGljZSB0aGF0IFJTdHVkaW8gaGVscHMgdXMgYWxvbmcgYnkgYXV0b2ZpbGxpbmcgdGhlIHZhcmlvdXMgY29sdW1ucy4KCmBgYHtyfQpzdHIoRk9UUiRSYWNlKQpgYGAKCiMjIFF1YW50aXRhdGl2ZWx5IEFuYWx5emluZyBEYXRhCgpUaGUgbmV4dCBzdGVwIGlzIGZpZ3VyaW5nIG91dCBob3cgdG8gYW5hbHl6ZSBkYXRhLiAKCkEgc2ltcGxlIHRoaW5nIHRvIGRvIGlzIGdlbmVhdGUgc3VtbWFyeSBzdGF0aXN0aWNzLiAKCmBgYHtyfQpzdW1tYXJ5KFJPVEspCmBgYAoKYGBge3J9CnN1bW1hcnkoVFRUKQpgYGAKCldlIGNvdWxkIHRyeSBzZWxlY3RpbmcgaW5kaXZpZHVhbCBjb2x1bW5zLgoKYGBge3J9ClJPVEskUmFjZQpgYGAKCldlIGNhbiBhbHNvIHN1YnNldCB0aGUgZGF0YSBxdWFudGl0YXRpdmVseSwgYnkgaW5kZXguCgpgYGB7cn0KUk9US1syLCAyXQpgYGAKCgoK</div>
 
 
 
@@ -1852,6 +1949,29 @@ $(document).ready(function () {
 });
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeSourceEmbed("data-manipulation-viewing.Rmd");
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

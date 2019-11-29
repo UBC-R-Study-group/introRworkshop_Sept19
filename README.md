@@ -1,5 +1,5 @@
 # NOTICE
-This repo has been archived to read-only since it is no longer active. All materials can still be viewed/downloaded. 
+This repo has been archived to read-only since it is no longer active. Some of the links here may not be active. All materials can still be viewed/downloaded. 
 
 ***
 
